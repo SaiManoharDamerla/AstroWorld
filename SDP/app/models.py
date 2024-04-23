@@ -36,10 +36,10 @@ class Userdetails(models.Model):
     email = models.CharField(max_length=50, unique=True, blank=False)
     fname = models.CharField(max_length=25, blank=False)
     lname = models.CharField(max_length=25, blank=False)
-    address = models.TextField(blank=False)
-    city = models.CharField(blank=False)
-    country = models.CharField(blank=False)
-    postalcode = models.CharField(blank=False)
+    address = models.TextField(max_length=50, blank=False)
+    city = models.CharField(max_length=50, blank=False)
+    country = models.CharField(max_length=50, blank=False)
+    postalcode = models.CharField(max_length=50, blank=False)
 
     class Meta:
         db_table = "Userdetails_table"
