@@ -1,0 +1,42 @@
+{% extends 'navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block b2 %} Home {% endblock %}</title>
+</head>
+<body>
+  {% block b1 %}
+  <link rel="stylesheet" href="{% static 'style-home.css' %}">
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Discover Your Destiny!</h2>
+            <p>Explore the mysteries of the stars with our horoscope app.</p>
+            <a href="{% url 'zodiacsign' %}" class="btn">Get Your ZodiacSign</a>
+        </div>
+    </section>
+    <section class="features">
+        <div class="feature">
+            <i class="fas fa-star"></i>
+            <h3>Astrological Insights</h3>
+            <p>Unlock the secrets of your destiny through astrology.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-globe"></i>
+            <h3>Global Horoscopes</h3>
+            <p>Access horoscopes from around the world and across cultures.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Daily Updates</h3>
+            <p>Receive daily horoscope updates to guide your day.</p>
+        </div>
+    </section>
+    <br>
+    <script src="{% static 'script-home.js' %}"></script>
+    
+
+{% endblock %}
+</body>
+</html>

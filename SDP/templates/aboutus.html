@@ -1,0 +1,67 @@
+{% extends 'navbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block b2%} About Us {% endblock %}</title>
+</head>
+<body>
+{% block b1 %}
+<div class="bg-slate-900">
+    <section id="features" class="relative block px-6 py-10 md:py-20 md:px-10  border-t border-b border-neutral-900 bg-neutral-900/30">
+        <div class="relative mx-auto max-w-5xl text-center">
+            <span class="text-gray-400 my-3 flex items-center justify-center font-medium uppercase tracking-wider">
+                Why choose us
+            </span>
+            <h2 class="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-5xl" style="color: #ff896b;">
+                Unlock Your Cosmic Potential
+            </h2>
+            <p class="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
+                At AstroHorizon, we are dedicated to helping you navigate the celestial energies and unlock the secrets of your destiny.
+            </p>
+        </div>
+        <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+                <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border " style="background-image: linear-gradient(#83c5be 0%, #50fbea 100%); border-color: #ff896b;">
+                    <svg class="h-8 w-8 text-orange-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z"/>
+                        <rect x="4" y="6" width="4" height="5" rx="1"/>
+                        <line x1="6" y1="4" x2="6" y2="6"/>
+                        <line x1="6" y1="11" x2="6" y2="20"/>
+                        <rect x="10" y="14" width="4" height="5" rx="1"/>
+                        <line x1="12" y1="4" x2="12" y2="14"/>
+                        <line x1="12" y1="19" x2="12" y2="20"/>
+                        <rect x="16" y="5" width="4" height="6" rx="1"/>
+                        <line x1="18" y1="4" x2="18" y2="5"/>
+                        <line x1="18" y1="11" x2="18" y2="20"/>
+                    </svg>
+                </div>
+                <h3 class="mt-6 text-gray-400">Cosmic Insights</h3>
+                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">Explore astrological insights tailored to your unique cosmic blueprint.</p>
+            </div>
+            <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+                <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border " style="background-image: linear-gradient(#83c5be 0%, #50fbea 100%); border-color: #ff896b;">
+                    <svg class="h-8 w-8 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                </div>
+                <h3 class="mt-6 text-gray-400">Astrological Guidance</h3>
+                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">Receive personalized astrological guidance to navigate life's challenges and opportunities.</p>
+            </div>
+            <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+                <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border " style="background-image: linear-gradient(#83c5be 0%, #50fbea 100%); border-color: #ff896b;">
+                    <svg class="h-8 w-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                    </svg>
+                </div>
+                <h3 class="mt-6 text-gray-400">Empowering Solutions</h3>
+                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">Empower yourself with actionable solutions aligned with the cosmic energies.</p>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 z-0 h-1/3 w-full border-b" style="background-image: linear-gradient(to right top, #83c5be 0%, transparent 50%, transparent 100%); border-color: #83c5be;"></div>
+        <div class="absolute bottom-0 right-0 z-0 h-1/3 w-full" style="background-image: linear-gradient(to left top, #f99a83 0%, transparent 50%, transparent 100%); border-color: #83c5be;"></div>
+    </section>
+</div>
+{% endblock %}
+</body>
+</html>
