@@ -46,3 +46,17 @@ class Userdetails(models.Model):
 
     def __str__(self):
         return self.username
+
+
+class Feedback(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=25, blank=False)
+    email = models.CharField(max_length=50, blank=False)
+    feedback = models.TextField(blank=False, max_length=50)
+    rating = models.CharField(default=0, max_length=10)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = "FeedBack_table"

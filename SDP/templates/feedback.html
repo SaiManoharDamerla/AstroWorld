@@ -1,10 +1,68 @@
-<!DOCTYPE html>
+{% extends 'navbar.html'%}
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>{% block b2%} Feedback {% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-$END$
+    {% block b1 %}
+<section class="bg-blue-200 dark:bg-slate-800" id="feedback">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mb-4">
+            <div class="mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12">
+                <p class="text-base font-semibold uppercase tracking-wide text-[#2a9d8f] dark:text-white">
+                    Feedback
+                </p>
+
+                <h2 class="font-heading mb-4 font-bold tracking-tight text-gray-900 dark:text-white text-3xl sm:text-5xl">
+                    Share Your Thoughts
+                </h2>
+                <p class="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-slate-400">
+                </p>
+            </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+            <div class="card h-fit max-w-6xl p-5 md:p-12" id="form">
+                <h2 class="mb-4 text-2xl font-bold text-[#2a9d8f]">We'd Love to Hear From You!</h2>
+
+                <form id="feedbackForm" method="POST" action="{% url 'submit_feedback'%}">
+                    {% csrf_token %}
+                    <div class="mb-6">
+                        <label for="name" class="pb-1 text-xs uppercase tracking-wider text-white">Your Name</label>
+                        <input type="text" id="name" name="name" autocomplete="given-name" placeholder="Your name" class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-black">
+                        <label for="email" class="pb-1 text-xs uppercase tracking-wider text-white">Your Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="Your email address" class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-black">
+                        <label for="feedback" class="pb-1 text-xs uppercase tracking-wider text-white">Your Feedback</label>
+                        <textarea id="feedback" name="feedback" cols="30" rows="5" placeholder="Share your feedback..." class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-black"></textarea>
+
+                        <div class="mb-2">
+                            <label for="rating" class="pb-1 text-xs uppercase tracking-wider text-white">Rate Us</label>
+                            <select id="rating" name="rating" class="w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-black">
+                                <option value="5">★★★★★</option>
+                                <option value="4">★★★★</option>
+                                <option value="3">★★★</option>
+                                <option value="2">★★</option>
+                                <option value="1">★</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="w-full bg-[#2a9d8f] text-white px-6 py-3 font-xl rounded-md hover:bg-[#ff896b]">Submit Feedback</button>
+                    </div>
+                </form>
+                {% if messages %}
+                    <script>
+                        {% for message in messages %}
+                            alert('{{ message }}');
+                        {% endfor %}
+                    </script>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
 </body>
 </html>

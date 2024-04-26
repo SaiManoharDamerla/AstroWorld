@@ -1,4 +1,3 @@
-import contact
 from django.contrib import messages, auth
 from django.core.mail import send_mail
 from django.db.models import Q
@@ -6,11 +5,14 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import random
 import json
-import json
 import requests  # Add this line
 from django.http import JsonResponse
+from django.shortcuts import render, HttpResponse
+from django.contrib import messages
+from django.core.mail import send_mail
+from .models import Register
 
-from .models import Register, Contact, Userdetails
+from .models import Register, Contact, Userdetails, Feedback
 
 
 # home page
@@ -24,6 +26,10 @@ def signup(request):
 
 def contactus(request):
     return render(request, "contactus.html")
+
+
+def feedback(request):
+    return render(request, "feedback.html")
 
 
 def home(request):
@@ -76,6 +82,7 @@ def checksignup(request):
         password = request.POST.get('password')
         reg = Register(name=name, password=password, email=email)
         reg.save()
+        messages.info(request, "Email registered Successfully")
         return render(request, "signup.html")
 
 
@@ -93,6 +100,7 @@ def checksignin(request):
             else:
                 return render(request, "userdetails.html", {'email': email})
         else:
+            messages.info(request, "Email not registered")
             return render(request, "signup.html")
 
 
@@ -106,22 +114,24 @@ def generate_otp():
 def checkforgot(request):
     if request.method == "POST":
         email = request.POST.get('email')
+        print(email)
         try:
-            check = Register.objects.get(email=email)
-            if check:
+            value = Register.objects.get(email=email)
+            # print(value)
+            if value:
                 otp = generate_otp()
                 request.session["otp"] = otp
                 subject = 'Your OTP for the change Password'
                 message = "otp:" + otp
                 request.session['femail'] = email
                 send_mail(subject, message, 'damerla.vsrs.manohar@gmail.com', [email], fail_silently=False)
-
-                # Pass otp value to the checkotp functio
-
                 return render(request, "otpverify.html")
-        except:
+        except Register.DoesNotExist:
             messages.info(request, "Email not registered")
             return render(request, "signup.html")
+        except Exception as e:
+            print(e)  # Print the actual exception for debugging purposes
+            return HttpResponse("An error occurred")
 
 
 def checkotp(request):
@@ -286,3 +296,15 @@ def rasi(request):
 
 def input(request):
     return render(request, "userinput.html")
+
+
+def submit_feedback(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        feedback = request.POST.get('feedback')
+        rating = request.POST.get('rating')
+        feedback_form = Feedback(name=name, email=email, feedback=feedback, rating=rating)
+        feedback_form.save()
+        messages.info(request, "FeedBack Submitted Successfully")
+        return redirect('feedback')

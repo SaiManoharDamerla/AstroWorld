@@ -1,10 +1,31 @@
-<!DOCTYPE html>
+{% load static%}
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>AstroWorld | OTPVerify</title>
 </head>
-<body>
-$END$
+<body class="bg-blue-200 flex justify-center items-center h-screen">
+    <form class="my-10 flex flex-col items-center" action="{% url 'checkotp'%}" method="POST">
+        {% csrf_token %}
+        <div class="title text-2xl font-bold text-black mb-4">Verification Code Sent!</div>
+        <p class="message text-gray-600 text-center">We have sent a verification code to your Email address</p>
+        <p class="message text-gray-600 text-center text-xs">Reload this page to resend the OTP</p>
+        <div class="inputs mt-6 flex justify-center">
+            <input id="input1" name="userotp" type="number" maxlength="4" required
+                   class="w-40 h-20 text-2xl text-center border-b-2 border-gray-300 mx-2">
+        </div>
+        <button type="submit" class="action mt-8 px-6 py-4 rounded-md bg-[#2a9d8f] text-white hover:bg-[#ff896b] focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50 cursor-pointer">Verify OTP</button>
+    </form>
+{% if messages %}
+    <script>
+        {% for message in messages %}
+            alert('{{ message }}');
+        {% endfor %}
+    </script>
+{% endif %}
+
 </body>
 </html>
