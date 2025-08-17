@@ -1,5 +1,4 @@
 # AstroWorld
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/SaiManoharDamerla/AstroWorld)
 
 AstroWorld is a dynamic web application built with Django that provides users with personalized astrological insights. The platform offers a range of services, including Rashi chart generation, Zodiac sign determination, and daily horoscopes, all accessible through a user-friendly interface.
 
